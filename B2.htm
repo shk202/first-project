@@ -1,0 +1,60 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#story").click(function(event) {
+                $.getJSON("http://127.0.0.1:8081/a", function(data) {
+                    $("#message").html(data.story);
+                    $("#title").html(data.title);
+                });
+		$.get('http://127.0.0.1:8081/u');
+            });
+           
+        });
+    </script>
+    <style>
+        .story {
+            display: block;
+            margin: auto;
+            margin-top: 150px;
+            border: solid grey 1px;
+            padding: 10px;
+            background: #FFFFFF;
+            border-radius: 5px;
+            overflow: auto;
+            height: 250px;
+        }
+
+        .title {
+            padding-left: 500px;
+        }
+
+        .message {
+            overflow: auto;
+        }
+
+        .large {
+            padding: auto;
+            font-size: 22px;
+        }
+
+        .button {
+            padding-top: 40px;
+            width: 25%;
+        }
+
+        body {
+            background: #1E90FF;
+        }
+    </style>
+</head>
+<div class="row story">
+    <div class="col-sm-12">
+        <h1 class="title"><em id="title"></h1>
+      <h2 id="message"></h2>
+   </div>
+</div>
+<div class="col-md-offset-5 col-md-10 col-sm-12">
+   <button id="story" class="btn btn-primary large">New Story</button>
+</div>
